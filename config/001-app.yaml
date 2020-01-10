@@ -10,8 +10,3 @@ spec:
     spec:
       containers:
       - image: nimak/websocket-app:v1
-        env:
-        - name: SERVING_POD_IP
-          valueFrom:
-            fieldRef:
-              fieldPath: status.podIP
