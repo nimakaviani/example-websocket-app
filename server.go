@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"time"
 
 	"os"
 
@@ -34,18 +33,11 @@ func echo(w http.ResponseWriter, r *http.Request) {
 		}
 
 		log.Printf("recv: %s", message)
-
 		host, err := os.Hostname()
 		if err != nil {
 			log.Println("read: ", err)
 		}
 
-		pongMsg := fmt.Sprintf("%s: pong", time.Now())
-		err = c.WriteMessage(mt, []byte(pongMsg))
-		if err != nil {
-			log.Println("write:", err)
-			break
-		}
 		err = c.WriteMessage(mt, []byte(fmt.Sprintf("host: %s", host)))
 		if err != nil {
 			log.Println("write:", err)
