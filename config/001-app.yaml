@@ -9,4 +9,4 @@ spec:
     metadata:
     spec:
       containers:
-      - image: nimak/websocket-app:v1
+      - image: nimak/websocket-app:v2
